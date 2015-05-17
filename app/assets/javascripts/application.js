@@ -14,4 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require angular/angular
+//= require angular-rails-templates
+//= require angular-animate/angular-animate
+//= require angular-cookies/angular-cookies
+//= require angular-fontawesome/dist/angular-fontawesome
+//= require angular-resource/angular-resource
+//= require angular-route/angular-route
+//= require angular-sanitize/angular-sanitize
+//= require angular-touch/angular-touch
+//= require es5-shim/es5-shim
+//= require json3/lib/json3
 //= require_tree .

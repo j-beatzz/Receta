@@ -29,6 +29,8 @@ gem 'sass', '3.2.19'
 
 gem 'bower-rails'
 
+gem 'angular-rails-templates'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

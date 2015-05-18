@@ -1,29 +1,11 @@
-recipes = [
-    {
-        id: 1,
-        name: 'Baked Potato w/ Cheese'
-    },
-    {
-        id: 2,
-        name: 'Garlic Mashed Potatoes'
-    },
-    {
-        id: 3,
-        name: 'Potatoes Au Gratin'
-    },
-    {
-        id: 4,
-        name: 'Baked Brussel Sprouts'
-    },
-];
-
-
-receta.controller('RecipesController', function($scope) {
-    $scope.recipes = [];
+receta.controller('RecipesController', function($scope, RecipeService) {
+    $scope.service =  RecipeService;
+    $scope.recipes =  [];
     $scope.search = function(keywords) {
-        if($scope.keywords) {
-            $scope.recipes = recipes.filter(function(recipe) { 
-                return recipe.name.toLowerCase().indexOf($scope.keywords.toLowerCase()) != -1;
+        if(angular.isDefined($scope.keywords) && angular.isString($scope.keywords)
+            && $scope.keywords != "") {
+            $scope.service.getMatchingRecipes(keywords, function(data){
+                $scope.recipes = data;
             });
         } else {
             $scope.recipes = [];
@@ -34,7 +16,5 @@ receta.controller('RecipesController', function($scope) {
         function(){
             $scope.search($scope.keywords);
         
-    })
-
-        
+    }); 
 });

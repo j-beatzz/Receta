@@ -9,6 +9,10 @@ receta.config(function ($routeProvider, $locationProvider) {
         templateUrl: 'index.html',
         controller: 'RecipesController'
       })
+      .when('/recipes/:recipeId', {
+      	templateUrl: 'show.html',
+      	controller: 'RecipeController'
+      })
       .otherwise({
         redirectTo: '/'
       });

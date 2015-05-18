@@ -1,7 +1,11 @@
-receta.controller('RecipeController', function($scope, RecipeService){
-	$scope.service = RecipeService.new(); 
+receta.controller('RecipeController', function($scope, $location, $routeParams, RecipeService){
+	$scope.service = RecipeService;
+	$scope.back = function() {
+		$location.path('/');
+	};
+	$scope.recipe = {};
 
-	$scope.recipe = $scope.service.get({id: $scope.id}, function() {
-		console.log($scope.recipe);
+	RecipeService.getRecipe($routeParams.recipeId, function(data) {
+		$scope.recipe = data;
 	});
 });

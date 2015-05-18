@@ -38,7 +38,7 @@ receta.service('RecipeService', ['$http', function($http) {
 			}
 		}
 
-		self.getRecipe = function(id) {
+		self.getRecipe = function(id, callback) {
 			$http.get('/recipes/' + id ).
 				success(function(data, status, headers, config) {
 					log(data);

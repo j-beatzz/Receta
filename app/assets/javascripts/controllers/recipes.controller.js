@@ -1,4 +1,4 @@
-receta.controller('RecipesController', function($scope, RecipeService) {
+receta.controller('RecipesController', function($scope, $location, RecipeService) {
     $scope.service =  RecipeService;
     $scope.recipes =  [];
     $scope.search = function(keywords) {
@@ -11,6 +11,10 @@ receta.controller('RecipesController', function($scope, RecipeService) {
             $scope.recipes = [];
         }
     };
+
+    $scope.view = function(id) {
+        $location.path('recipes/' + id);
+    }
 
     $scope.$watch(function($scope){return $scope.keywords;},
         function(){
